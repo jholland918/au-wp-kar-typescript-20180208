@@ -4031,6 +4031,12 @@ karma-mocha-reporter@latest:
     log-symbols "^2.1.0"
     strip-ansi "^4.0.0"
 
+karma-sourcemap-loader@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/karma-sourcemap-loader/-/karma-sourcemap-loader-0.3.7.tgz#91322c77f8f13d46fed062b042e1009d4c4505d8"
+  dependencies:
+    graceful-fs "^4.1.2"
+
 karma-typescript-preprocessor@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/karma-typescript-preprocessor/-/karma-typescript-preprocessor-0.2.1.tgz#cae8a8712e417036511dc5688fc752375eed628f"

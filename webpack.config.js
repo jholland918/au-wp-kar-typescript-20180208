@@ -6,6 +6,7 @@ const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { optimize: { CommonsChunkPlugin, UglifyJsPlugin }, ProvidePlugin } = require('webpack');
 const { TsConfigPathsPlugin, CheckerPlugin } = require('awesome-typescript-loader');
+const webpack = require("webpack");
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -111,6 +112,14 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     ])),
     ...when(production, new UglifyJsPlugin({
       sourceMap: true
-    }))
+    })),
+
+    // Make source map work in typescript unit tests with SourceMapDevToolPlugin.
+    // See also https://github.com/webpack-contrib/karma-webpack/issues/109
+    new webpack.SourceMapDevToolPlugin({
+      filename: null, // if no value is provided the sourcemap is inlined
+      test: /\.(ts|js)($|\?)/i, // process .js and .ts files only
+      exclude: [/node_modules/]
+    })
   ]
 });

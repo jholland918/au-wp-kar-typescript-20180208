@@ -24,6 +24,12 @@ module.exports = function (config) {
     ],
 
     /*
+     * Add mime type for typescript files to make Chrome happy
+     * see https://github.com/webpack-contrib/karma-webpack/issues/188
+     */
+    mime: { 'text/x-typescript': ['ts', 'tsx'] },
+
+    /*
      * preprocess matching files before serving them to the browser
      * available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
      */
@@ -31,7 +37,9 @@ module.exports = function (config) {
       'test/karma-bundle.js': [ 'webpack' ]
     },
 
-    webpack: require('../webpack.config')({ coverage: true }),
+    // The the sourcemaps no longer work when istanbul-instrumenter-loader is used. :(
+    //webpack: require('../webpack.config')({ coverage: true }),
+    webpack: require('../webpack.config')({ coverage: false }),
 
     /*
      * test results reporter to use
