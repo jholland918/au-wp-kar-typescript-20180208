@@ -17,8 +17,6 @@ Project Configuration
 
 `>yarn add jest-matchers --dev`
 
-`>yarn add karma-sourcemap-loader --dev`
-
 ### Configure tsconfig.json
 Add `"sourceMap": true`
 

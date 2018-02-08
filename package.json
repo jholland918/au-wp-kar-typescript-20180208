@@ -45,7 +45,6 @@
     "karma-coverage-istanbul-reporter": "^1.3.0",
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "latest",
-    "karma-sourcemap-loader": "^0.3.7",
     "karma-typescript-preprocessor": "^0.2.1",
     "karma-webpack": "latest",
     "minimatch": "^3.0.2",
